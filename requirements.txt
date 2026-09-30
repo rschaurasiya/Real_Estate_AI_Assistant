@@ -7,3 +7,5 @@ langchain-community==0.4.2
 langchain-huggingface==1.2.2
 protobuf==5.29.5
 sentence-transformers==5.7.0
+torch==2.9.1+cu126
+torchvision==0.24.1+cu126
