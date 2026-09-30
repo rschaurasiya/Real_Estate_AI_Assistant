@@ -104,14 +104,13 @@ Real_Estate_AI_Assistant/
 ├── rag.py
 ├── prompt.py
 ├── requirements.txt
-├── .env
 │
 ├── resources/
 │   └── vectorstore/
 │
 ├── screenshots/
 │   ├── project.png
-│   └── result.png
+│   └── project_1.png
 │
 └── README.md
 ```
@@ -186,4 +185,3 @@ This project helped me understand how to build a practical **RAG application** u
 
 B.Tech CSE Student | Data Science & AI
 
-GitHub: https://github.com/rschaurasiya
