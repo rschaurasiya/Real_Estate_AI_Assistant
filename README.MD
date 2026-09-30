@@ -1,67 +1,148 @@
 # Real Estate AI Assistant
 
-An AI-powered assistant for exploring real estate listings and answering property-related questions.
+A Retrieval-Augmented Generation (RAG) based AI assistant that retrieves information from provided web articles and uses an LLM to answer questions based on the retrieved content.
+
+## Project Overview
+
+The Real Estate AI Assistant allows users to:
+
+* Provide one or more website URLs
+* Extract content from the provided webpages
+* Split the content into smaller chunks
+* Convert chunks into vector embeddings
+* Store embeddings in ChromaDB
+* Retrieve relevant information for a user's question
+* Generate an answer using an LLM
+* Display the source URLs used for the answer
+
+## How It Works
+
+```text
+Website URLs
+     ↓
+Web Scraping
+     ↓
+Text Extraction
+     ↓
+Text Splitting
+     ↓
+Hugging Face Embeddings
+     ↓
+ChromaDB Vector Store
+     ↓
+Similarity Search
+     ↓
+Relevant Documents
+     ↓
+Groq LLM
+     ↓
+Answer + Sources
+```
+
+## Technologies Used
+
+* Python
+* Streamlit
+* LangChain
+* ChromaDB
+* Hugging Face Embeddings
+* Groq LLM
+* RAG (Retrieval-Augmented Generation)
+
+## Embedding Model
+
+The project uses:
+
+`thenlper/gte-small`
+
+It converts the extracted text into numerical vector representations that can be stored and searched in ChromaDB.
 
 ## Features
 
-- Search properties by location, budget, and preferences
-- Ask natural-language questions about listings
-- Compare properties by price, size, and amenities
-- Summarize listing details for buyers and renters
+* URL-based knowledge retrieval
+* Semantic search using vector embeddings
+* Question answering using retrieved context
+* Source-aware responses
+* Streamlit web interface
+* Multiple URL support
+* Persistent ChromaDB vector storage
 
-## Getting Started
+## Project Structure
 
-### Prerequisites
+```text
+real_estate_ai_assistant/
+│
+├── main.py
+├── rag.py
+├── prompt.py
+├── requirements.txt
+│
+├── resources/
+│   └── vectorstore/
+│
+└── screenshots/
+    └── project.png
+```
 
-- Python 3.10 or later
-- An API key for the AI provider used by the application
+## Installation
 
-### Installation
+Clone the repository:
 
 ```bash
-git clone <repository-url>
-cd real_estate_ai_assistant
-python -m venv .venv
+git clone https://github.com/rschaurasiya/Real_Estate_AI_Assistant.git
+cd Real_Estate_AI_Assistant
+```
 
-# Windows
-.venv\Scripts\activate
+Install the required packages:
 
-# macOS/Linux
-source .venv/bin/activate
-
+```bash
 pip install -r requirements.txt
 ```
 
-### Configuration
+Create a `.env` file and add your Groq API key:
 
-Create a `.env` file in the project root and add the required credentials:
-
-```env
-AI_API_KEY=your_api_key_here
+```text
+GROQ_API_KEY=your_api_key
 ```
 
-Never commit API keys or other secrets to version control.
+## Run the Application
 
-## Running the Application
+Start the Streamlit application:
 
 ```bash
-python app.py
+streamlit run main.py
 ```
 
-Replace `app.py` with the project’s actual entry point if it differs.
+Then open the local Streamlit URL shown in the terminal.
 
-## Example Questions
+## Example
 
-- “Find two-bedroom homes within my budget.”
-- “Compare these properties by price and location.”
-- “What should I consider before making an offer?”
+Provide a news/article URL, such as an article related to the housing market or mortgage rates.
 
-Always verify listing information with the listing provider or a qualified real estate professional.
+Then ask questions such as:
 
-## Development
+* What happened to home sales?
+* Why did mortgage rates change?
+* How does the Federal Reserve affect mortgage rates?
+* What factors affected the housing market?
 
-Run the project’s tests and formatting checks before submitting changes.
+The assistant retrieves relevant information from the provided webpages and generates an answer based on that information.
 
-## License
+## Project Screenshot
 
-Add the project license information here.
+![Real Estate AI Assistant](screenshots/project.png)
+
+## Key Learning
+
+This project demonstrates how RAG can connect an LLM with external information sources instead of relying only on the model's existing knowledge.
+
+The project covers the complete flow:
+
+**Web Data → Embeddings → Vector Database → Retrieval → LLM → Answer**
+
+## Author
+
+**Radheshyam Kumar Chaurasiya**
+
+B.Tech Computer Science & Engineering Student
+Interested in Data Science, Machine Learning, LLMs and Agentic AI.
