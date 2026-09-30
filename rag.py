@@ -3,7 +3,6 @@
 from uuid import uuid4
 from dotenv import load_dotenv
 from pathlib import Path
-from prompt import PROMPT, EXAMPLE_PROMPT
 from langchain_classic.chains import RetrievalQAWithSourcesChain
 from langchain_classic.chains.qa_with_sources.loading import load_qa_with_sources_chain
 from langchain_community.document_loaders import UnstructuredURLLoader
@@ -93,7 +92,7 @@ def generate_answer(query):
 
     # Remove duplicate URLs
     sources_docs = list(dict.fromkeys(sources_docs))
-    
+
     return result['answer'], sources_docs
 
 

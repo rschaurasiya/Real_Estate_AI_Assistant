@@ -131,6 +131,7 @@ The assistant retrieves relevant information from the provided webpages and gene
 ## Project Screenshot
 
 ![Real Estate AI Assistant](screenshots/project.png)
+![Real Estate AI Assistant](screenshots/project_1.png)
 
 ## Key Learning
 
